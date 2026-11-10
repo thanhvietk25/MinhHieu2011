@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hello cô của chúng em – 20/11</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M50 14 80 32v36L50 86 20 68V32z"/><path d="M50 28 68 39v22L50 72 32 61V39z" stroke-dasharray="3 3"/><g fill="currentColor"><circle cx="50" cy="14" r="6"/><circle cx="80" cy="32" r="5"/><circle cx="80" cy="68" r="6"/><circle cx="50" cy="86" r="5"/><circle cx="20" cy="68" r="6"/><circle cx="20" cy="32" r="5"/></g></symbol>
+<symbol id="fl" viewBox="-50 -50 100 100"><g fill="currentColor" fill-opacity=".85"><ellipse cy="-22" rx="14" ry="24"/><ellipse cy="-22" rx="14" ry="24" transform="rotate(72)"/><ellipse cy="-22" rx="14" ry="24" transform="rotate(144)"/><ellipse cy="-22" rx="14" ry="24" transform="rotate(216)"/><ellipse cy="-22" rx="14" ry="24" transform="rotate(288)"/></g><circle r="9" fill="#e2c275"/></symbol>
+</svg>
+
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="chem" aria-hidden="true"></div>
+<div id="rise" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main id="s1" class="screen on">
+  <svg class="fl" style="top:6%;left:6%;--s:70px"><use href="#fl"/></svg>
+  <svg class="fl" style="bottom:7%;right:7%;--s:92px"><use href="#fl"/></svg>
+  <svg class="mol" style="top:9%;right:9%;--s:84px"><use href="#mol"/></svg>
+  <button id="env" class="env" aria-label="Mở tình cảm của bọn em">
+    <i class="back"></i><i class="letter">20/11</i><i class="front"></i><i class="flap"></i><i class="seal">❤</i>
+  </button>
+  <h1>A Special Gift For You</h1>
+  <p class="sub">Gửi cô Minh Hiếu – Người truyền cảm hứng từ những điều kỳ diệu của Hóa học.</p>
+  <button id="open" class="cta">Mở tình cảm của bọn em 💌</button>
+  <div class="tiles" aria-hidden="true"><b><small>6</small>C</b><span>+</span><b><small>8</small>O</b><span>=</span><em>Cô</em></div>
+</main>
+
+<main id="s2" class="screen">
+  <div class="wrap">
+    <article class="card">
+      <svg class="fl" style="top:-28px;left:-28px;--s:66px"><use href="#fl"/></svg>
+      <svg class="fl" style="bottom:-28px;right:-28px;--s:66px"><use href="#fl"/></svg>
+      <svg class="mol" style="top:-16px;right:-16px;--s:84px"><use href="#mol"/></svg>
+      <header>
+        <p class="tag">Happy Vietnamese Teachers' Day</p>
+        <p class="big">20/11</p>
+        <h2>Gửi cô Minh Hiếu kính yêu!</h2>
+      </header>
+      <div class="body">
+        <p class="rv">Nhân ngày Nhà giáo Việt Nam 20/11, chúng em xin gửi đến cô Minh Hiếu những lời chúc tốt đẹp và chân thành nhất.</p>
+        <p class="rv">Cảm ơn cô vì đã luôn tận tâm, kiên nhẫn và truyền cho chúng em niềm yêu thích đối với môn Hóa học. Cảm ơn cô đã giúp chúng em khám phá những điều kỳ diệu ẩn sau từng nguyên tố, phản ứng và phương trình hóa học.</p>
+        <p class="rv">Kính chúc cô luôn mạnh khỏe, hạnh phúc, xinh đẹp và giữ mãi ngọn lửa nhiệt huyết với nghề giáo. Mong rằng mỗi ngày đến trường của cô đều là một phản ứng tạo ra thật nhiều niềm vui và những kỷ niệm đáng nhớ.</p>
+        <p class="rv cap">Và vài “phương trình” nhỏ dành riêng cho cô:</p>
+        <ul class="wishes">
+          <li class="rv">Chúc cô luôn có một cuộc sống ổn định như những liên kết cộng hóa trị bền vững.</li>
+          <li class="rv">Mong nụ cười của cô luôn tỏa sáng như phản ứng phát quang.</li>
+          <li class="rv">Chúc mọi điều tốt đẹp của cô luôn diễn ra theo chiều thuận, và hạnh phúc đến với cô không cần đến chất xúc tác nào.</li>
+          <li class="rv">Mong niềm vui của cô luôn được bảo toàn như định luật bảo toàn khối lượng.</li>
+          <li class="rv">Chúc cô luôn tràn đầy năng lượng tích cực, không ngừng lan tỏa niềm đam mê khoa học đến các thế hệ học trò.</li>
+          <li class="rv">Nếu cuộc đời là một phương trình hóa học, mong rằng hạnh phúc và bình an luôn là những sản phẩm có hiệu suất cao nhất.</li>
+        </ul>
+        <p class="rv">Chúc cô có một ngày 20/11 thật ý nghĩa và tràn ngập yêu thương!</p>
+        <p class="rv end">Chúng em yêu quý cô rất nhiều! ❤️</p>
+        <div class="lab rv">
+          <svg class="tube" viewBox="0 -20 60 150" aria-hidden="true">
+            <defs><clipPath id="tc"><path d="M14 8h32v88a16 16 0 0 1-32 0z"/></clipPath></defs>
+            <g clip-path="url(#tc)"><rect class="liq" x="10" y="52" width="40" height="80"/><circle class="bub" cx="24" cy="100" r="3"/><circle class="bub b2" cx="34" cy="104" r="2.2"/><circle class="bub b3" cx="30" cy="98" r="3.4"/><circle class="bub b4" cx="38" cy="102" r="1.8"/></g>
+            <path d="M14 8h32v88a16 16 0 0 1-32 0z" fill="rgba(255,255,255,.25)" stroke="#8f78c4" stroke-width="2"/>
+            <path d="M10 8h40" stroke="#8f78c4" stroke-width="3" stroke-linecap="round"/>
+            <ellipse class="drop" cx="30" cy="-6" rx="3.2" ry="4.6"/>
+          </svg>
+          <div>
+            <p>Một thí nghiệm nhỏ dành riêng cho cô:</p>
+            <button class="ghost" id="react">Thêm A2💧</button>
+            <p id="res">Phản ứng hoàn tất! A2 + Minh Hiếu → Thanh xuân + kỷ niệm↓❤️ (H% = 100%)</p>
+          </div>
+        </div>
+      </div>
+      <nav class="acts">
+        <button class="ghost" id="replay">Xem lại lời chúc</button>
+        <button class="ghost" id="wishbtn">Lời chúc từ các bạn</button>
+        <button class="ghost" id="galbtn">Xem kỷ niệm</button>
+        <button class="ghost" id="home">Quay về màn hình đầu</button>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<section id="gal" class="gal" hidden aria-label="Kỷ niệm">
+  <button class="x" id="gx" aria-label="Đóng">✕</button>
+  <h3>Những kỷ niệm của chúng ta</h3>
+  <div class="grid" id="grid"></div>
+</section>
+<section id="wsh" class="gal wsh" hidden aria-label="Lời chúc từ các bạn">
+  <button class="x" id="wx" aria-label="Đóng">✕</button>
+  <h3>Lời chúc gửi cô Minh Hiếu 💌</h3>
+  <div class="wl" id="wl"></div>
+</section>
+<div id="lb" class="lb" hidden><button class="nav p" aria-label="Ảnh trước">‹</button><img alt=""><button class="nav n" aria-label="Ảnh sau">›</button></div>
+<button id="music" aria-label="Bật/tắt nhạc nền" title="Bật/tắt nhạc">♪</button>
+<audio id="bgm" src="assets/music/background.mp3" loop preload="none"></audio>
+<script src="js/images.js"></script>
+<script src="js/wishes.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
