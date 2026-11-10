@@ -195,12 +195,13 @@ const wsh = $('#wsh'), wl = $('#wl');
 const WISHES = Array.isArray(window.WISH_LIST) ? window.WISH_LIST : [];
 $('#wishbtn').onclick = () => {
   wl.textContent = '';
-  if (!WISHES.length) { const n = document.createElement('p'); n.className = 'none'; n.textContent = 'Chưa có lời chúc nào. Hãy thêm vào file js/wishes.js nhé.'; wl.append(n); }
+  const box = document.createElement('div'); box.className = 'wc'; wl.append(box);
+  if (!WISHES.length) { const n = document.createElement('p'); n.className = 'none'; n.textContent = 'Chưa có lời chúc nào. Hãy thêm vào file js/wishes.js nhé.'; box.append(n); }
   WISHES.forEach((w, i) => {
     const c = document.createElement('article'), t = document.createElement('p'), f = document.createElement('footer');
     c.className = 'w'; c.style.setProperty('--d', Math.min(i * .12, 1.5) + 's');
     t.textContent = w.text; f.textContent = '— ' + (w.name || 'Một bạn học sinh');
-    c.append(t, f); wl.append(c);
+    c.append(t, f); box.append(c);
   });
   wl.scrollTop = 0; wsh.hidden = false;
 };

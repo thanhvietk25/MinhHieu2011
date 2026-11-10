@@ -139,11 +139,12 @@ h2{font:italic 400 clamp(1.2rem,4.5vw,1.7rem)/1.25 var(--serif);color:var(--lavd
 @keyframes blink{50%{opacity:0}}
 
 /* ===== Lời chúc từ các bạn ===== */
-.wl{flex:1;overflow:auto;columns:260px;column-gap:14px;padding:4px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--lav) transparent}
+.wl{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:4px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--lav) transparent}
+.wc{columns:260px;column-gap:14px}
 .w{position:relative;break-inside:avoid;margin:0 0 14px;padding:1.5rem 1.2rem 1rem;background:linear-gradient(160deg,#fffdf9,#fdf0f5 60%,#f4eefc);border:1px solid rgba(201,164,92,.55);border-radius:14px;box-shadow:0 6px 18px rgba(110,70,140,.15);opacity:0;transform:translateY(14px);animation:wi .8s var(--d,0s) cubic-bezier(.2,.8,.2,1) forwards}
 .w::before{content:"\275D";position:absolute;top:.3rem;left:.8rem;font-size:1.5rem;line-height:1;color:var(--gold)}
-.w p{font-size:clamp(.92rem,3.4vw,1rem);line-height:1.7}
+.w p{overflow-wrap:anywhere;white-space:pre-line;font-size:clamp(.92rem,3.4vw,1rem);line-height:1.7}
 .w footer{margin-top:.7rem;text-align:right;font-style:italic;color:var(--rose)}
-.wl .none{column-span:all}
+.wc .none{column-span:all;text-align:center}
 @keyframes wi{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.w{animation:none;opacity:1;transform:none}}
