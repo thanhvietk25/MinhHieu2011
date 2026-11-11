@@ -23,11 +23,8 @@ window.WISH_LIST = [
   },
   {
   name: 'nguyên tố bí ẩn',
-  text: `Hi cô ơiiii! 😽 Cô có đoán được em là ai honggg?
-Nhân ngày Nhà giáo Việt Nam 20/11 và dịp sinh nhật cô (30/11) em chúc cô luôn bền bỉ và quý giá như C (kim cương)💎.
-Happy Vietnamese Teachers' Day & Happy Birthday cô🧪
-(Cô đoán được em là ai chưa ạaaaa:3)`
-},
+  text: `Hi cô ơiiii! 😽 Cô có đoán được em là ai honggg?\nNhân ngày Nhà giáo Việt Nam 20/11 và dịp sinh nhật cô (30/11) em chúc cô luôn bền bỉ và quý giá như C (kim cương)💎.\nHappy Vietnamese Teachers' Day & Happy Birthday cô🧪\n(Cô đoán được em là ai chưa ạaaaa:3)`
+  },
   {
     name: 'TNam',
     text: 'Nhân ngày 20/11, em chúc cô Hiếu - người mẹ hiền thứ hai của lớp A2 luôn mạnh khỏe, vui vẻ và hạnh phúc với nghề. Dù nay em đã là sinh viên năm 2, không còn được nghe cô nhắc nhở mỗi ngày nhưng những kỷ niệm thời cấp 3 dưới sự dìu dắt của cô vẫn luôn là hành trang quý giá của em. Em chúc cô luôn vui vẻ và có thêm thật nhiều lứa học trò ngoan ngoãn, thành đạt!'
@@ -93,7 +90,7 @@ Happy Vietnamese Teachers' Day & Happy Birthday cô🧪
     text: 'Gửi cô Hiếu yêu quý của em!\nNgày 20/11 năm nay tuy có chút hụt hẫng vì chúng em không còn được học cô nữa, nhưng tình cảm và lòng biết ơn chúng em dành cho cô thì vẫn vẹn\nnguyên như những ngày đầu.🫶\nNhân ngày Nhà giáo Việt Nam và cũng sắp đến sinh nhật cô (30/11) nữa, em chúc cô lúc nào cũng rạng rỡ, tràn đầy sức khỏe và luôn hạnh phúc trên. Mong cô sẽ có một ngày 20/11 thật trọn vẹn và đón tuổi mới thật ấm áp, ngập tràn niềm vui bên gia đình và các học trò nhỏ 🎂💐✨'
   },
   {
-    name: 'huỳnh dĩnh khang',
+    name: 'Huỳnh Dĩnh Khang',
     text: 'Nhân dịp ngày 20/11 sắp tới và ngày đặt biệt của cô, em xin gửi đến cô những lời chúc tốt đẹp nhất. Chúc cô luôn mạnh khỏe, xinh đẹp, lúc nào cũng vui vẻ và tràn đầy năng lượng như những phản ứng hóa học phản ứng mạnh mẽ. Em cảm ơn cô rất nhiều vì đã luôn tận tâm và truyền đạt cho em thật nhiều kiến thức. Kính chúc cô bước sang một tuổi mới thật nhiều bình an, hạnh phúc và gặt hái thêm nhiều thành công trong sự nghiệp trồng người'
   }
 ];

@@ -338,7 +338,7 @@ function cakeDays() {
   const n = new Date(), td = new Date(n.getFullYear(), n.getMonth(), n.getDate()), b = new Date(n.getFullYear(), 10, 30);
   if (b < td) b.setFullYear(b.getFullYear() + 1);
   const d = Math.round((b - td) / 864e5);
-  return d === 0 ? 'Hôm nay là sinh nhật cô rồi! 🎉' : d <= 60 ? `Còn ${d} ngày nữa là đến sinh nhật cô (30/11) 🎂` : 'Sinh nhật cô (30/11) – chúc cô một tuổi mới thật nhiều niềm vui 🎂';
+  return d === 0 ? 'Hôm nay là sinh nhật cô rồi! 🎉' : d <= 60 ? `Còn ${d} ngày nữa là đến sinh nhật cô rồiiii 🎂` : 'Sinh nhật cô – tụi em chúc cô một tuổi mới thật nhiều niềm vui, hạnh phúc nha ạaaaa💝';
 }
 function cakeReset() {
   blowT.forEach(clearTimeout); blowT = []; lit = true; clearInterval(cwT); cl.textContent = '';
