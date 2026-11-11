@@ -1,4 +1,3 @@
-
 /* LỜI CHÚC TỪ CÁC BẠN
    Mỗi lời chúc là một object gồm name và text.
    - Thêm lời chúc: copy một object rồi sửa tên + nội dung.
@@ -49,5 +48,29 @@ window.WISH_LIST = [
     {
         name: 'Ngoan xinh iu A2 💞',
         text: '"Ngoan xinh iu" Chúc cô tuổi mới khí chất ngút ngàn 💞 Sự nghiệp thăng hoa 🔥 Tiền tài gõ cửa 💸\nMãi xinh - Mãi iu - Mãi slay 🍒\nCô luôn là ngoại lệ của tụi em! 🙊\nHappy birthday! 🎂🎂🎂\n⚡ 1 ngoại lệ - 47 trái tim ⚡'
+    },
+    {
+        name: 'Dragon tuổi hồng',
+        text: 'Nhân ngày 20/11, em xin gửi lời tri ân sâu sắc nhất đến cô Minh Hiếu. Chúc cô luôn trẻ trung, hạnh phúc và mỗi ngày đứng lớp đều ngập tràn niềm vui cùng những kỷ niệm đẹp bên học trò!'
+    },
+    {
+        name: 'Ngân',
+        text: 'Dạ em chào cô, lời đầu tiên em xin chúc cô có một ngày lễ 20/11 của Nghề Giáo thật là vui vẻ bên gia đình và những đồng nghiệp của mình. Tuy đã là sinh viên năm 2 nhưng với em trước giờ cô vẫn là một cô giáo tuyệt vời, vị trí mà chưa ai thay thế được. Vì vậy cô hãy luôn hạnh phúc, sống cuồng nhiệt với nghề để đúc ra được những con tướng mạnh nhất nha cô. Trong em cô siêu tuyệt, nên đừng lo lắng và nghĩ nhiều với những quyết định và dự định của mình nha cô.😍'
+    },
+    {
+        name: 'Nhỏ lì ngầm của lớp',
+        text: 'Em chúc cô sinh nhật vui vẻ ạaa'
+    },
+    {
+        name: 'HỒNG NHUNG',
+        text: 'Em kính chúc cô Minh Hiếu nhân ngày Nhà giáo Việt Nam 20/11 luôn tràn ngập niềm vui, sức khỏe dồi dào và luôn giữ vững ngọn lửa đam mê với bục giảng cũng như những tiết học Hóa học thú vị của cô.Đặc biệt hơn, nhân dịp sinh nhật sắp đến vào ngày 30/11 tới đây, em xin gửi lời chúc mừng sinh nhật chân thành nhất đến cô. Chúc cô tuổi mới luôn bình an, hạnh phúc, gặt hái được thật nhiều thành công hơn nữa trong sự nghiệp trồng người và luôn giữ mãi nụ cười rạng rỡ trên môi.'
+    },
+    {
+        name: 'Ngọt Éng',
+        text: 'Gửi cô Minh Hiếu yêu dấu của em,\nHôm nay 20/11, em muốn gửi lời cảm ơn đặc biệt đến cô - người đã luôn kiên nhẫn đồng hành cùng chúng em qua từng năm tháng. Hơn thế nữa, tháng 11 này lại càng ý nghĩa hơn khi ngày sinh nhật 30/11 của cô đang đến gần. Em chúc cô tuổi mới luôn bình an, gặt hái được nhiều trái ngọt trong sự nghiệp trồng người và luôn cảm thấy hạnh phúc với những gì mình đang làm. I love cô chụt chụt😘💌'
+    },
+    {
+        name: 'Huýn🫶',
+        text: 'Nhân dịp ngày Nhà giáo Việt Nam 20/11 và sinh nhật sắp tới của cô, em chúc cô luôn mạnh khỏe, bình an, hạnh phúc và có thật nhiều niềm vui trong cuộc sống.\nThời gian trôi qua, chúng em rồi cũng sẽ bước tiếp trên những chặng đường mới, gặp gỡ thêm nhiều thầy cô và có thêm những trải nghiệm mới. Nhưng những kỷ niệm, những bài học được học tập, đồng hành cùng cô sẽ luôn là những điều đáng quý mà chúng em nhớ mãi. Cảm ơn cô vì đã luôn tận tình, nhiệt huyết và dành cho chúng em thật nhiều sự quan tâm.\nMong tuổi mới sẽ mang đến cho cô thật nhiều niềm vui và những điều tốt đẹp. Chúc cô luôn giữ được nụ cười trên môi, luôn yêu nghề và có thật nhiều khoảnh khắc hạnh phúc. Hy vọng rằng sau này, khi nhắc về những thế hệ học trò của mình, cô vẫn sẽ nhớ đến tụi em, nhớ về những kỷ niệm vui vẻ và tự hào vì đã có một nhóm học trò đáng yêu như tụi em ạ.'
     }
 ];
