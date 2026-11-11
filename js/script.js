@@ -254,7 +254,7 @@ const cake = document.createElement('section');
 cake.id = 'cake'; cake.className = 'gal cake'; cake.hidden = true; cake.setAttribute('aria-label', 'Bánh sinh nhật');
 cake.innerHTML = Array.from({ length: 38 }, () => `<i class="st" style="left:${rnd(1, 99).toFixed(1)}%;top:${rnd(1, 99).toFixed(1)}%;--z:${rnd(1, 2.8).toFixed(1)}px;animation-delay:${rnd(0, 4).toFixed(1)}s;animation-duration:${rnd(2.2, 4.6).toFixed(1)}s"></i>`).join('') + `
   <button class="x" id="cx" aria-label="Đóng">✕</button>
-  <h3>Sinh nhật cô Minh Hiếu 🎂</h3>
+  <h3>Sinh nhật cô iuuuuu 🎂</h3>
   <p class="cd" id="cd"></p>
   <div class="hbt" id="hbt"></div>
   <div class="stage" id="cstage">
@@ -280,7 +280,7 @@ cake.innerHTML = Array.from({ length: 38 }, () => `<i class="st" style="left:${r
       <g id="smk"></g>
     </svg>
   </div>
-  <div class="cacts"><button class="cta" id="blow">Thổi nến 🌬️</button></div>`;
+  <div class="cacts"><button class="cta" id="blow">🌬️ Thổi nến </button></div>`;
 document.body.append(cake);
 const cl = document.createElement('div'); cl.id = 'wcake'; cl.setAttribute('aria-hidden', 'true'); document.body.append(cl);   /* lời chúc nổi lên khi thổi nến */
 const cf = document.createElement('canvas'); cf.className = 'cf'; cf.setAttribute('aria-hidden', 'true'); document.body.append(cf);
@@ -432,7 +432,7 @@ function blowOut() {
     cstage.classList.replace('blowing', 'out'); cake.classList.add('done');
     hbt.className = 'hbt on'; hbt.textContent = '';
     const big = document.createElement('div'), sub = document.createElement('div');
-    big.className = 'big'; sub.className = 'sub'; sub.textContent = 'Chúc mừng sinh nhật cô Minh Hiếu 💖';
+    big.className = 'big'; sub.className = 'sub'; sub.textContent = 'Tuy hơi sớm nhưng mà\nCHÚC MỪNG SINH NHẬT CÔ ẠAAAA💖';
     [...'Happy Birthday!'].forEach((ch, i) => { const sp = document.createElement('span'); sp.textContent = ch === ' ' ? '\u00a0' : ch; sp.style.animationDelay = i * .07 + 's'; sp.style.color = LET[i % 5]; big.append(sp); });
     hbt.append(big, sub); celebrate();
     cwT = setInterval(floater(cl, () => !cake.hidden && !lit, [40, 34], 0, [1600, 5600]), 600);   /* lời chúc của các bạn lần lượt nổi lên */
