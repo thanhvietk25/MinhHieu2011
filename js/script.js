@@ -3,9 +3,9 @@
 /* Icon tab trình duyệt: nếu index.html thiếu thẻ <link rel="icon"> thì tự thêm (dùng assets/favicon.png) */
 if (!document.querySelector('link[rel~="icon"]')) { const ic = document.createElement('link'); ic.rel = 'icon'; ic.type = 'image/png'; ic.href = 'assets/favicon.png'; document.head.append(ic); }
 /* ẢNH: chạy file cap-nhat-anh.bat để tự tạo js/images.js từ MỌI ảnh trong assets/images/ (tên gì cũng được).
-   Nếu chưa chạy, web thử các tên anh1.jpg ... anh40.jpg (ảnh thiếu sẽ tự bị bỏ qua). */
+   Nếu chưa chạy, web thử các tên anh1.jpg ... anh100.jpg (ảnh thiếu sẽ tự bị bỏ qua). */
 const LISTED = Array.isArray(window.IMAGE_LIST) && window.IMAGE_LIST.length > 0;
-const IMAGES = LISTED ? window.IMAGE_LIST : Array.from({ length: 40 }, (_, i) => `assets/images/anh${i + 1}.jpg`);
+let IMAGES = LISTED ? window.IMAGE_LIST : Array.from({ length: 100 }, (_, i) => `assets/images/anh${i + 1}.jpg`);
 const MAX_PHOTOS = 10, MAX_MOBILE = 5; /* số ảnh tối đa bay cùng lúc: máy tính / điện thoại */
 const FORM = ['H₂O','CO₂','NaCl','CH₄','O₃','NH₃','C₆H₆','C₆H₁₂O₆','H₂SO₄','2H₂ + O₂ → 2H₂O'];
 
@@ -17,16 +17,54 @@ let mode = 'gift', valid = [], opened = false, timers = [];
 
 /* ---------- Ảnh bay từ dưới lên ---------- */
 const layer = $('#rise');
-const preload = () => LISTED ? Promise.resolve().then(() => { valid = IMAGES.slice(); }) : Promise.all(IMAGES.map(src => new Promise(ok => {
-  const i = new Image(); i.onload = () => ok(src); i.onerror = () => ok(null); i.src = src;
-}))).then(r => { valid = r.filter(Boolean); });
+/* Không chờ tải hết ảnh: có danh sách (images.js) thì dùng ngay; chưa có thì ảnh nào tải xong là dùng ảnh đó (tối đa chờ 4 giây ảnh đầu tiên) */
+const preload = () => LISTED ? Promise.resolve().then(() => { valid = IMAGES.slice(); }) : new Promise(done => {
+  IMAGES.forEach(src => { const i = new Image(); i.onload = () => { valid.push(src); done(); }; i.src = src; });
+  setTimeout(done, 4000);
+});
+
+/* ---------- Tự nhận ảnh mới (không cần chạy cap-nhat-anh.bat nữa) ----------
+   - Web chạy trên GitHub Pages: tự hỏi GitHub xem thư mục assets/images có ảnh nào, ảnh mới upload là có ngay (kết quả nhớ 5 phút).
+   - Mở file trực tiếp trên máy / host khác: tự thử các tên nối tiếp (anh42.jpg, anh43.jpg ...). Ảnh đặt tên khác thì chạy cap-nhat-anh.bat. */
+const IMG_RE = /\.(jpe?g|png|webp|gif)$/i;
+const addImgs = list => list.forEach(src => { if (!IMAGES.includes(src)) IMAGES.push(src); if (!valid.includes(src)) valid.push(src); });
+async function ghList() {
+  const h = location.hostname;
+  if (!/\.github\.io$/i.test(h)) return null;
+  const owner = h.split('.')[0], parts = location.pathname.split('/').filter(Boolean);
+  if (parts.length && /\.[a-z0-9]+$/i.test(parts[parts.length - 1])) parts.pop();           /* bỏ index.html */
+  const tries = parts.length ? [[parts[0], parts.slice(1)], [h, parts]] : [[h, []]];       /* repo dự án, hoặc repo owner.github.io */
+  let stale = null;
+  for (const [repo, sub] of tries) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${[...sub, 'assets', 'images'].join('/')}`, key = 'imgs:' + url;
+    try {
+      const c = JSON.parse(localStorage.getItem(key) || 'null');
+      if (c && Date.now() - c.t < 3e5) return c.list;
+      if (c) stale = c.list;
+      const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+      if (!r.ok) continue;
+      const list = (await r.json()).filter(f => f.type === 'file' && IMG_RE.test(f.name)).map(f => 'assets/images/' + encodeURIComponent(f.name));
+      try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), list })); } catch (e) {}
+      return list;
+    } catch (e) {}
+  }
+  return stale;
+}
+function probeMore() {
+  const top = Math.max(0, ...IMAGES.map(s => +(/anh(\d+)\.jpg$/i.exec(s) || [])[1]).filter(Boolean));
+  for (let n = 1; n <= top + 50; n++) {
+    const src = `assets/images/anh${n}.jpg`; if (IMAGES.includes(src)) continue;
+    const i = new Image(); i.onload = () => addImgs([src]); i.src = src;
+  }
+}
+const discover = () => ghList().catch(() => null).then(list => list ? addImgs(list) : probeMore());
 
 function rise() {
   const m = isM();
   if (document.hidden || layer.children.length >= (m ? MAX_MOBILE : MAX_PHOTOS)) return;
   const w = m ? rnd(66, 104) : rnd(110, 170), el = document.createElement('div');
   el.className = 'ph'; el.style.width = w + 'px';
-  if (valid.length) { const im = new Image(), src = valid[Math.random() * valid.length | 0]; im.alt = ''; im.decoding = 'async'; im.onerror = () => { valid = valid.filter(v => v !== src); el.remove(); }; im.src = src; el.append(im); }
+  if (valid.length) { const im = new Image(), src = valid[Math.random() * valid.length | 0]; im.alt = ''; im.decoding = 'async'; im.onerror = () => el.remove(); im.src = src; el.append(im); }
   else { el.classList.add('e'); el.textContent = FORM[Math.random() * 9 | 0]; }
   const vw = innerWidth, vh = innerHeight, edge = m ? [-w * .25, vw * .04] : [vw * .03, vw * .22];
   const off = rnd(edge[0], edge[1]);
@@ -170,11 +208,13 @@ $('#react').onclick = e => {
 /* ---------- Thư viện kỷ niệm ---------- */
 const gal = $('#gal'), grid = $('#grid'), lb = $('#lb'), lbi = lb.querySelector('img');
 let li = 0;
-const showLb = i => { li = (i + valid.length) % valid.length; lbi.src = valid[li]; lb.hidden = false; };
+const byNum = new Intl.Collator(undefined, { numeric: true }).compare;   /* anh2 trước anh10 */
+let pics = [];                                                       /* ảnh của thư viện: chốt lại mỗi lần mở */
+const showLb = i => { li = (i + pics.length) % pics.length; lbi.src = pics[li]; lb.hidden = false; };
 $('#galbtn').onclick = () => {
-  grid.textContent = '';
-  if (!valid.length) grid.innerHTML = '<p class="none">Chưa có ảnh. Hãy bỏ ảnh vào thư mục assets/images/ nhé.</p>';
-  valid.forEach((src, i) => {
+  grid.textContent = ''; pics = (LISTED ? IMAGES.slice() : valid.slice()).sort(byNum); 
+  if (!pics.length) grid.innerHTML = '<p class="none">Chưa có ảnh. Hãy bỏ ảnh vào thư mục assets/images/ nhé.</p>';
+  pics.forEach((src, i) => {
     const b = document.createElement('button'), im = new Image();
     b.className = 't'; im.src = src; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; im.onerror = () => b.remove(); b.append(im); b.onclick = () => showLb(i); grid.append(b);
   });
@@ -456,5 +496,5 @@ new MutationObserver(() => {
 
 addEventListener('resize', seed);
 seed(); requestAnimationFrame(frame);
-preload().then(() => { setTimeout(rise, 300); setTimeout(rise, 1500); setTimeout(loop, 3200); });
+preload().then(() => { setTimeout(rise, 300); setTimeout(rise, 1500); setTimeout(loop, 3200); discover(); });
 })();
