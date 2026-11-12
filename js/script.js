@@ -128,7 +128,7 @@ const SPEED = 20; /* ms cho mỗi ký tự khi đánh máy */
 items.forEach(e => { if (e !== lab) { e._c = Array.from(e.textContent.trim()); e.innerHTML = '<span></span><span class="g"></span>'; } });
 const put = (e, n) => { e.children[0].textContent = e._c.slice(0, n).join(''); e.children[1].textContent = e._c.slice(n).join(''); };
 const stop = () => { timers.forEach(t => { clearTimeout(t); clearInterval(t); }); timers = []; };
-const go = id => { document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === id)); mode = id === 's2' ? 'card' : 'gift'; fl.style.opacity = mode === 'gift' ? 1 : 0; };
+const go = id => { document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === id)); mode = id === 's2' ? 'card' : 'gift'; };
 function reveal() {
   stop(); lab.classList.remove('react'); $('.body').scrollTop = 0;
   items.forEach(e => { e.classList.remove('show', 'typing'); if (e._c) put(e, 0); });
@@ -201,35 +201,8 @@ const mkWish = w => {
   c.append(t, f); return c;
 };
 
-/* 1) Lời chúc tự trôi từ dưới lên, nổi trên nền: dùng cho màn hình đầu và cho phòng bánh sinh nhật.
-   ok() cho biết lúc nào được phép ra thẻ mới; sp = [tốc độ máy tính, tốc độ điện thoại] (px/giây); delays = chờ trước thẻ đầu của mỗi bên (ms) */
-function floater(layer, ok, sp, startIdx, delays) {
-  let idx = startIdx, sd = 0; const t0 = performance.now(), next = delays.map(d => t0 + d);
-  return () => {
-    if (reduce || !WISHES.length || document.hidden || !ok()) return;
-    const m = isM(), now = performance.now(), vw = innerWidth, vh = innerHeight;
-    for (let k = 0; k < (m ? 1 : 2); k++) {
-      if (now < next[k]) continue;
-      const side = m ? sd++ % 2 : k, cw = m ? Math.min(170, vw * .44) : Math.max(170, Math.min(250, vw * .2));
-      const off = m ? rnd(2, 10) : rnd(vw * .015, vw * .05), r = rnd(-2, 2), speed = m ? sp[1] : sp[0];
-      const c = mkWish(WISHES[idx++ % WISHES.length]);
-      c.classList.add('fw'); c.style.width = cw + 'px'; c.style.left = (side ? vw - cw - off : off) + 'px';
-      layer.append(c);
-      const h = c.offsetHeight, dist = vh + h;
-      next[k] = now + (h + rnd(50, 110)) / speed * 1000;   /* chờ thẻ trước trôi qua rồi mới ra thẻ mới cùng bên, không đè nhau */
-      c.animate([
-        { opacity: 0, transform: `translateY(0) rotate(${r}deg)`, offset: 0 },
-        { opacity: 1, offset: .06 }, { opacity: 1, offset: .9 },
-        { opacity: 0, transform: `translateY(${-dist}px) rotate(${-r}deg)`, offset: 1 }
-      ], { duration: dist / speed * 1000, easing: 'linear', fill: 'forwards' }).onfinish = () => c.remove();
-    }
-  };
-}
-/* màn hình đầu: nổi trên các ảnh */
-const fl = document.createElement('div'); fl.id = 'wfloat'; fl.setAttribute('aria-hidden', 'true'); document.body.append(fl);
-setInterval(floater(fl, () => mode === 'gift' && cake.hidden, [48, 42], Math.random() * WISHES.length | 0, [2500, 7500]), 600);
 
-/* 2) Nút "Lời chúc từ các bạn": danh sách đầy đủ, cuộn dọc */
+/* Nút "Lời chúc từ các bạn": danh sách đầy đủ, cuộn dọc */
 $('#wishbtn').onclick = () => {
   wl.textContent = '';
   const box = document.createElement('div'); box.className = 'wc'; wl.append(box);
@@ -284,7 +257,6 @@ cake.innerHTML = '<div class="fxl">' + Array.from({ length: 38 }, () => `<i clas
   </div>
   <div class="cacts"><button class="cta" id="blow">🌬️ Thổi nến </button></div>`;
 document.body.append(cake);
-const cl = document.createElement('div'); cl.id = 'wcake'; cl.setAttribute('aria-hidden', 'true'); document.body.append(cl);   /* lời chúc nổi lên khi thổi nến */
 const cf = document.createElement('canvas'); cf.className = 'cf'; cf.setAttribute('aria-hidden', 'true'); document.body.append(cf);
 const cstage = $('#cstage'), hbt = $('#hbt'), blow = $('#blow'), cx2 = cf.getContext('2d');
 $('#cdl').innerHTML = CANDLES.map((x, i) => `
@@ -333,7 +305,7 @@ function noise(dur, vol, f0, f1) {                                  /* tiếng t
 }
 
 /* ----- trạng thái ----- */
-let lit = true, blowT = [], parts = [], cfRaf = 0, rainT = [], bgmOff = false, cwT = 0;
+let lit = true, blowT = [], parts = [], cfRaf = 0, rainT = [], bgmOff = false;
 mb.addEventListener('click', () => { bgmOff = au.paused; });
 const PROMPT = 'Cô hãy ước một điều ước, rồi thổi nến nhé ✨';
 function cakeDays() {
@@ -343,7 +315,7 @@ function cakeDays() {
   return d === 0 ? 'Hôm nay là sinh nhật cô rồi! 🎉' : d <= 60 ? `Còn ${d} ngày nữa là đến sinh nhật cô rồiiii 🎂` : 'Sinh nhật cô – tụi em chúc cô một tuổi mới thật nhiều niềm vui, hạnh phúc nha ạaaaa💝';
 }
 function cakeReset() {
-  blowT.forEach(clearTimeout); blowT = []; lit = true; clearInterval(cwT); cl.textContent = '';
+  blowT.forEach(clearTimeout); blowT = []; lit = true;
   cstage.className = 'stage'; cake.classList.remove('done'); $('#smk').textContent = '';
   cake.querySelectorAll('.bl').forEach(e => e.remove());
   hbt.className = 'hbt'; hbt.textContent = PROMPT;
@@ -437,7 +409,6 @@ function blowOut() {
     big.className = 'big'; sub.className = 'sub'; sub.textContent = 'Tuy hơi sớm nhưng mà\nCHÚC MỪNG SINH NHẬT CÔ ẠAAAA💖';
     [...'Happy Birthday!'].forEach((ch, i) => { const sp = document.createElement('span'); sp.textContent = ch === ' ' ? '\u00a0' : ch; sp.style.animationDelay = i * .07 + 's'; sp.style.color = LET[i % 5]; big.append(sp); });
     hbt.append(big, sub); celebrate();
-    cwT = setInterval(floater(cl, () => !cake.hidden && !lit, [40, 34], 0, [1600, 5600]), 600);   /* lời chúc của các bạn lần lượt nổi lên */
     blow.textContent = 'Thắp nến lại 🕯️'; blow.disabled = false;
   }, 1300));
 }

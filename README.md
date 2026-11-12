@@ -49,7 +49,7 @@ HTML/CSS/JS thuần, không cần backend, chạy được trên GitHub Pages.
 3. Mở lại `index.html`, nhấn Ctrl+F5. Mỗi lần thêm/xóa ảnh, chạy lại bước 2.
 4. Khi đưa lên GitHub, nhớ upload cả `js/images.js`.
 5. Thu nhỏ ảnh trước (khoảng 1000px, dưới 300KB/ảnh), nếu không web sẽ rất nặng.
-- Nút bí mật "🔒 Bí mật – cô đừng mở nhé!" (dưới nút mở thiệp ở màn hình đầu): mở phòng bánh sinh nhật, phát nhạc Happy Birthday, thổi nến thì có khói, pháo hoa, pháo giấy, bóng bay và các lời chúc trong `js/wishes.js` lần lượt nổi lên màn hình. Ngày sinh nhật (30/11) đặt trong hàm `cakeDays` ở `js/script.js`; số nến và màu nến ở mảng `CANDLES`, `CCOL`. Nhạc Happy Birthday tự tạo bằng code (mảng `HB`), không cần file nhạc.
+- Nút bí mật "🔒 Bí mật – cô đừng mở nhé!" (dưới nút mở thiệp ở màn hình đầu): mở phòng bánh sinh nhật, phát nhạc Happy Birthday, thổi nến thì có khói, pháo hoa, pháo giấy, bóng bay. Ngày sinh nhật (30/11) đặt trong hàm `cakeDays` ở `js/script.js`; số nến và màu nến ở mảng `CANDLES`, `CCOL`. Nhạc Happy Birthday tự tạo bằng code (mảng `HB`), không cần file nhạc.
 
 ## Nhạc
 - `assets/music/background.mp3`: nhạc nền.

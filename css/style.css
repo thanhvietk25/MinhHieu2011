@@ -149,14 +149,6 @@ h2{font:italic 400 clamp(1.2rem,4.5vw,1.7rem)/1.25 var(--serif);color:var(--lavd
 @keyframes wi{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.w{animation:none;opacity:1;transform:none}}
 
-/* lời chúc trôi trên màn hình đầu, nổi trên các ảnh */
-#wfloat,#wcake{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden;transition:opacity .6s}
-#wcake{z-index:8}
-#wcake .w.fw{box-shadow:0 0 26px rgba(255,214,140,.38),0 8px 20px rgba(0,0,0,.35)}
-.w.fw{position:absolute;top:100%;margin:0;padding:1.4rem .95rem .8rem;animation:none;opacity:0;transform:none;background:linear-gradient(160deg,rgba(255,253,249,.96),rgba(253,240,245,.96) 60%,rgba(244,238,252,.96));will-change:transform,opacity}
-.w.fw p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:12;overflow:hidden;font-size:.88rem;line-height:1.6}
-.w.fw footer{font-size:.85rem}
-@media(max-width:639px){.w.fw{padding:1.3rem .75rem .65rem}.w.fw p{-webkit-line-clamp:9;font-size:.76rem;line-height:1.55}.w.fw footer{font-size:.75rem}}
 
 /* ===== Bánh sinh nhật ===== */
 .cake{align-items:center;text-align:center;overflow-y:auto;padding-bottom:28px}
