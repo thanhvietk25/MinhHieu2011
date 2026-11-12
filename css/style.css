@@ -162,11 +162,12 @@ h2{font:italic 400 clamp(1.2rem,4.5vw,1.7rem)/1.25 var(--serif);color:var(--lavd
 .cake{align-items:center;text-align:center;overflow-y:auto;padding-bottom:28px}
 .cake h3{margin-bottom:.3rem}
 .cd{font-size:.92rem;color:var(--rose);font-style:italic;margin-bottom:.5rem}
-.hbt{flex:none;height:6.6rem;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:italic;color:var(--ink);padding:0 .5rem}
+.hbt{flex:none;height:8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:italic;color:var(--ink);padding:0 .5rem}
 .hbt:not(.on){font-size:clamp(.95rem,3.6vw,1.1rem)}
 .hbt .big{font:italic 700 clamp(2rem,9vw,3.2rem) var(--serif);line-height:1.15;text-shadow:0 2px 0 rgba(255,255,255,.9),0 4px 14px rgba(201,164,92,.45)}
 .hbt .big span{display:inline-block;opacity:0;animation:hpop .7s cubic-bezier(.2,1.4,.4,1) forwards}
-.hbt .sub{margin-top:.2rem;font-size:clamp(.9rem,3.4vw,1.05rem);color:var(--rose);opacity:0;animation:fi 1s 1.1s forwards}
+.hbt .sub{margin-top:.2rem;font-size:clamp(.9rem,3.4vw,1.05rem);color:var(--rose);opacity:0;animation:subin 1s 1.1s forwards}
+@keyframes subin{to{opacity:1}}
 @keyframes hpop{0%{opacity:0;transform:translateY(22px) scale(.3) rotate(-10deg)}70%{opacity:1;transform:translateY(-5px) scale(1.15)}100%{opacity:1;transform:none}}
 .stage{flex:none;width:min(90vw,440px,62vh);min-width:240px;aspect-ratio:300/245;margin:.3rem auto 0;filter:drop-shadow(0 12px 18px rgba(110,70,140,.22))}
 .cksvg{width:100%;height:100%;overflow:visible}
@@ -206,8 +207,6 @@ h2{font:italic 400 clamp(1.2rem,4.5vw,1.7rem)/1.25 var(--serif);color:var(--lavd
 .cake .hbt .sub{color:#ffd9ea}
 .cake .stage{filter:drop-shadow(0 0 30px rgba(255,190,110,.3))}
 .cake.done .stage{filter:drop-shadow(0 0 22px rgba(190,160,255,.3))}
-.cake::after{content:"";position:absolute;left:50%;top:58%;width:min(130vw,900px);aspect-ratio:1;translate:-50% -50%;background:radial-gradient(closest-side,rgba(255,190,110,.26),transparent);pointer-events:none;z-index:-1;transition:opacity 1.4s}
-.cake.done::after{opacity:.3}
 .st{position:absolute;z-index:-1;width:var(--z);height:var(--z);border-radius:50%;background:#fff;box-shadow:0 0 6px 1px rgba(255,255,255,.7);pointer-events:none;animation:tw 3s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
 /* bóng bay */
@@ -218,3 +217,13 @@ h2{font:italic 400 clamp(1.2rem,4.5vw,1.7rem)/1.25 var(--serif);color:var(--lavd
 @keyframes blr{to{transform:translateY(calc(-100vh - 330px))}}
 @keyframes bsw{0%{transform:translateX(-14px) rotate(-5deg)}100%{transform:translateX(14px) rotate(5deg)}}
 @media(prefers-reduced-motion:reduce){.st{animation:none;opacity:.6}.bl{display:none}}
+
+/* dòng chữ phụ dưới Happy Birthday: cho phép xuống dòng bằng \n */
+.cake .hbt .sub{white-space:pre-line}
+
+/* lớp trang trí (sao, ánh sáng, bóng bay) bị cắt gọn trong khung, không làm phòng bánh bị thừa chiều cao / hiện thanh cuộn */
+.fxl{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.fxl::after{content:"";position:absolute;left:50%;top:58%;width:min(130vw,900px);aspect-ratio:1;translate:-50% -50%;background:radial-gradient(closest-side,rgba(255,190,110,.26),transparent);transition:opacity 1.4s}
+.cake.done .fxl::after{opacity:.3}
+/* laptop màn hình thấp: thu gọn một chút để vừa 1 màn hình, không phải cuộn */
+@media(max-height:700px) and (min-height:521px){.cake{padding-top:48px}.hbt{height:6.9rem}.stage{width:min(90vw,440px,52vh)}.cacts{margin-top:.5rem}}

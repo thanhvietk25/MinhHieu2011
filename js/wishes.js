@@ -92,5 +92,9 @@ window.WISH_LIST = [
   {
     name: 'Huỳnh Dĩnh Khang',
     text: 'Nhân dịp ngày 20/11 sắp tới và ngày đặt biệt của cô, em xin gửi đến cô những lời chúc tốt đẹp nhất. Chúc cô luôn mạnh khỏe, xinh đẹp, lúc nào cũng vui vẻ và tràn đầy năng lượng như những phản ứng hóa học phản ứng mạnh mẽ. Em cảm ơn cô rất nhiều vì đã luôn tận tâm và truyền đạt cho em thật nhiều kiến thức. Kính chúc cô bước sang một tuổi mới thật nhiều bình an, hạnh phúc và gặt hái thêm nhiều thành công trong sự nghiệp trồng người'
+  },
+  {
+    name: 'Học trò cũ của cô ',
+    text: 'Chúc mừng ngày 20/11 cô Hiếu. Em chúc cô và gia đình thật nhiều sức khỏe. Chúc cô luôn vui vẻ, hạnh phúc và gặt hái được nhiều thành công trong sự nghiệp trồng người của mình. Cảm ơn cô đã luôn yêu thương, quan tâm và dạy dỗ chúng em. Cảm ơn thật nhiều ạ !❤️'
   }
 ];

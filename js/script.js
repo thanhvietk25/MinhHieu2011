@@ -1,5 +1,7 @@
 (() => {
 'use strict';
+/* Icon tab trình duyệt: nếu index.html thiếu thẻ <link rel="icon"> thì tự thêm (dùng assets/favicon.png) */
+if (!document.querySelector('link[rel~="icon"]')) { const ic = document.createElement('link'); ic.rel = 'icon'; ic.type = 'image/png'; ic.href = 'assets/favicon.png'; document.head.append(ic); }
 /* ẢNH: chạy file cap-nhat-anh.bat để tự tạo js/images.js từ MỌI ảnh trong assets/images/ (tên gì cũng được).
    Nếu chưa chạy, web thử các tên anh1.jpg ... anh40.jpg (ảnh thiếu sẽ tự bị bỏ qua). */
 const LISTED = Array.isArray(window.IMAGE_LIST) && window.IMAGE_LIST.length > 0;
@@ -252,7 +254,7 @@ $('#open').after(secret);
 
 const cake = document.createElement('section');
 cake.id = 'cake'; cake.className = 'gal cake'; cake.hidden = true; cake.setAttribute('aria-label', 'Bánh sinh nhật');
-cake.innerHTML = Array.from({ length: 38 }, () => `<i class="st" style="left:${rnd(1, 99).toFixed(1)}%;top:${rnd(1, 99).toFixed(1)}%;--z:${rnd(1, 2.8).toFixed(1)}px;animation-delay:${rnd(0, 4).toFixed(1)}s;animation-duration:${rnd(2.2, 4.6).toFixed(1)}s"></i>`).join('') + `
+cake.innerHTML = '<div class="fxl">' + Array.from({ length: 38 }, () => `<i class="st" style="left:${rnd(1, 99).toFixed(1)}%;top:${rnd(1, 99).toFixed(1)}%;--z:${rnd(1, 2.8).toFixed(1)}px;animation-delay:${rnd(0, 4).toFixed(1)}s;animation-duration:${rnd(2.2, 4.6).toFixed(1)}s"></i>`).join('') + '</div>' + `
   <button class="x" id="cx" aria-label="Đóng">✕</button>
   <h3>Sinh nhật cô iuuuuu 🎂</h3>
   <p class="cd" id="cd"></p>
@@ -410,7 +412,7 @@ function celebrate() {
     const el = document.createElement('div'), b = document.createElement('i'), w = rnd(34, 58);
     el.className = 'bl'; el.style.cssText = `left:${rnd(2, 92).toFixed(1)}%;--w:${w.toFixed(0)}px;--t:${rnd(7, 12).toFixed(1)}s;animation-delay:${rnd(0, 2.6).toFixed(2)}s`;
     b.style.cssText = `--c:${CF_COL[(Math.random() * 6 | 0) + 1]};animation-delay:${rnd(0, 2).toFixed(2)}s`; el.append(b);
-    el.addEventListener('animationend', e => { if (e.target === el) el.remove(); }); cake.append(el);
+    el.addEventListener('animationend', e => { if (e.target === el) el.remove(); }); $('#cake .fxl').append(el);
   }
   cfLoop();
 }
@@ -425,7 +427,7 @@ function puffSmoke(x) {
   }
 }
 function blowOut() {
-  if (!lit) { cakeReset(); playTune(); return; }                    /* bấm lần nữa: thắp nến lại */
+  if (!lit) { cakeReset(); playBday(); return; }                    /* bấm lần nữa: thắp nến lại */
   lit = false; blow.disabled = true; cstage.classList.add('blowing'); noise(.8, .55, 500, 2600);
   CANDLES.forEach((x, i) => blowT.push(setTimeout(() => puffSmoke(x), 500 + i * 130)));
   blowT.push(setTimeout(() => {
@@ -441,15 +443,45 @@ function blowOut() {
 }
 function cakeOpen() {
   if (!au.paused) au.pause();                                        /* tạm dừng nhạc nền để nghe bản Happy Birthday */
-  cakeReset(); $('#cd').textContent = cakeDays(); cake.hidden = false; cfSize(); playTune();
+  cakeReset(); $('#cd').textContent = cakeDays(); cake.hidden = false; cfSize(); playBday();
 }
 function cakeClose() {
-  cake.hidden = true; cakeReset(); stopTune();
+  cake.hidden = true; cakeReset(); stopBday();
   if (!bgmOff) play();                                               /* bật lại nhạc nền như cũ */
 }
 secret.onclick = cakeOpen; blow.onclick = blowOut; $('#cx').onclick = cakeClose;
 addEventListener('keydown', e => { if (e.key === 'Escape' && !cake.hidden) cakeClose(); });
 addEventListener('resize', () => { if (!cake.hidden) cfSize(); });
+
+/* ---------- Nhạc riêng cho từng phần (file mp3 do bạn tự thêm vào assets/music/) ----------
+   - memories.mp3 : phát khi bấm "Xem kỷ niệm", tắt khi đóng.
+   - birthday.mp3 : phát khi mở phòng bánh bí mật.
+   Muốn đổi tên file thì sửa 2 dòng ngay bên dưới. Chưa có file thì web tự dùng nhạc nền (kỷ niệm) / giai điệu tự tạo (sinh nhật). */
+const MUSIC = { memories: 'assets/music/memories.mp3', birthday: 'assets/music/birthday.mp3' };
+
+/* nhạc sinh nhật */
+const bday = new Audio(MUSIC.birthday); bday.preload = 'none'; bday.volume = .85;
+let bdayOK = true;                                                 /* file lỗi/không có → dùng giai điệu tự tạo */
+function playBday() {
+  stopBday();
+  if (!bdayOK) { playTune(); return; }
+  bday.currentTime = 0;
+  bday.play().catch(() => { if (!cake.hidden) { bdayOK = false; playTune(); } });
+}
+function stopBday() { bday.pause(); stopTune(); }
+
+/* nhạc phần kỷ niệm */
+const mem = new Audio(MUSIC.memories); mem.loop = true; mem.preload = 'none'; mem.volume = .6;
+let memDuck = false;                                               /* nhạc nền có đang bị tạm dừng nhường cho nhạc kỷ niệm không */
+$('#galbtn').addEventListener('click', () => {
+  mem.currentTime = 0;
+  mem.play().then(() => { if (!au.paused) { au.pause(); memDuck = true; } }, () => {});   /* không có file → giữ nguyên nhạc nền */
+});
+new MutationObserver(() => {
+  if (!gal.hidden) return;
+  mem.pause();
+  if (memDuck) { memDuck = false; if (!bgmOff) play(); }
+}).observe(gal, { attributes: true, attributeFilter: ['hidden'] });
 
 addEventListener('resize', seed);
 seed(); requestAnimationFrame(frame);
