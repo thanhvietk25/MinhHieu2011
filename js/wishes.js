@@ -92,5 +92,19 @@ window.WISH_LIST = [
   {
     name: 'Huỳnh Dĩnh Khang',
     text: 'Nhân dịp ngày 20/11 sắp tới và ngày đặt biệt của cô, em xin gửi đến cô những lời chúc tốt đẹp nhất. Chúc cô luôn mạnh khỏe, xinh đẹp, lúc nào cũng vui vẻ và tràn đầy năng lượng như những phản ứng hóa học phản ứng mạnh mẽ. Em cảm ơn cô rất nhiều vì đã luôn tận tâm và truyền đạt cho em thật nhiều kiến thức. Kính chúc cô bước sang một tuổi mới thật nhiều bình an, hạnh phúc và gặt hái thêm nhiều thành công trong sự nghiệp trồng người'
-  }
+  },
+  {
+  name: 'Học trò cũ của cô',
+  text: `Chúc mừng ngày 20/11 cô Hiếu. Em chúc cô và gia đình thật nhiều sức khỏe. Chúc cô luôn vui vẻ, hạnh phúc và gặt hái được nhiều thành công trong sự nghiệp trồng người của mình. Cảm ơn cô đã luôn yêu thương, quan tâm và dạy dỗ chúng em. Cảm ơn thật nhiều ạ !❤️`
+},
+{
+  name: 'Việt Nga hay cười',
+  text: `Nhân dịp 20/11em xin gửi đến cô lời cảm ơn chân thành và sâu sắc nhất. Cảm ơn cô đã luôn tận tâm dìu dắt, truyền đạt cho chúng em không chỉ kiến thức trong sách vở mà còn cả những bài học làm người quý giá. Em chúc cô luôn dồi dào sức khỏe, hạnh phúc và mãi giữ vững ngọn lửa đam mê với sự nghiệp trồng người.P/s:Ước dì được học cô thêm nữa`
+},
+{
+  name: 'Logan aka rốp bơ tay to',
+  text: `"Chợt nhớ hình ảnh hành lang ấy
+Đặt bút gom chữ thành trang giấy"
+Chúc mừng ngày của cô 20/11, và em cũng xin phép chúc mừng sinh nhật sớm cô yêu ngày 30/11 luôn ạ! Mới đó mà tụi em đã ra trường được hơn 1 năm rồi cô ha, nhưng em vẫn nhớ như in những kỷ niệm cùng cô và các bạn, hihi. Tháng 11 đặc biệt của cô, em chúc cô luôn mạnh khỏe, trẻ trung, rạng rỡ và gặt hái thật nhiều thành công trong tuổi mới nha cô!`
+}
 ];
