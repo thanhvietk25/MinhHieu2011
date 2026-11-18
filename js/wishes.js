@@ -180,5 +180,41 @@ tới đây thui nha cô,  em cũng muốn viết tiếp nhưng mà thôiiiii Đ
     {
         name: "Xuân Huy",
         text: `Em chúc cô có một ngày Nhà giáo Việt Nam 20/11 thật vui vẻ và ý nghĩa ạ, mong cô luôn mạnh khoẻ và giữ được thật nhiều nhiệt huyết với công việc giảng dạy. Và sắp tới sinh nhật cô, em chúc cô tuổi mới có thêm thật nhiều niềm vui, gặp nhiều may mắn, mọi việc đều thuận lợi và hạnh phúc bên gia đình, người thân. Tháng 11 tuyệt vời nhé cô!`
+    },
+    {
+        name: "tiktok @btmt458",
+        text: `“Có những người chẳng cần gieo hạt xuống đất mà vẫn làm nên cả một mùa xanh. Có những người chẳng cần cầm đũa thần mà vẫn khiến những tâm hồn non trẻ đổi thay từng ngày”.
+Nhân ngày 20/11, em chúc cô luôn giữ được ngọn lửa nhiệt thành trong tim, giữ được ánh mắt lấp lánh mỗi khi đứng trên bục giảng và giữ mãi nụ cười đủ sức làm dịu đi những ngày mệt mỏi nhất.
+Mong rằng cuộc đời sẽ dịu dàng với cô như cách cô đã kiên nhẫn với chúng em. Và nếu mỗi bài giảng là một hạt giống, em mong những hạt giống cô gieo hôm nay sẽ nở thành một khu vườn thật đẹp trong tương lai.`
+    },
+    {
+        name: "nghịch thiên cải mệnh",
+        text: `Thanh xuân của chúng em có thể được đo bằng những mùa thi, những trang vở, những lần chuyển lớp và cả những tháng ngày vội vã. Nhưng trong miền ký ức ấy, luôn có một khoảng trời dành cho những người đứng trên bục giảng.
+Cô có thể không nhớ hết tên từng học trò sau nhiều năm tháng, nhưng em tin sẽ có những điều cô từng nói vẫn âm thầm đi theo chúng em đến tận mai sau.
+Thời gian rồi sẽ đưa mỗi người đến một chân trời khác, phấn trắng rồi cũng có ngày rơi hết trên bục giảng, nhưng những điều tốt đẹp cô để lại sẽ không dễ gì phai nhạt.
+Chúc cô một ngày 20/11 thật đẹp. Mong tuổi trẻ trong cô không bao giờ cũ, mong mỗi ngày thức dậy đều có một lý do để mỉm cười, và mong cuộc đời cũng dành cho cô những điều dịu dàng nhất.`
+    },
+    {
+        name: "Tú Nguyệt Thiên Vũ",
+        text: `Cô từng dạy chúng em rằng trong một phản ứng hóa học, vật chất không tự nhiên sinh ra hay mất đi, chúng chỉ chuyển hóa từ dạng này sang dạng khác.
+Em chợt nghĩ, tình cảm của người làm nghề giáo có lẽ cũng giống như vậy.
+Những năm tháng cô dành cho chúng em không mất đi. Chúng chuyển hóa thành kiến thức, thành sự trưởng thành, thành những lựa chọn đúng đắn mà một ngày nào đó chúng em sẽ mang theo khi bước ra xã hội.
+Nhân ngày 20/11, em chúc cô luôn bình an, hạnh phúc và có thật nhiều niềm vui. Mong rằng trong phương trình cuộc đời mình, cô luôn là chất xúc tác cho những điều tốt đẹp, nhưng bản thân cô cũng luôn nhận được thật nhiều yêu thương.
+Bởi có những giá trị không thể đo bằng khối lượng, không thể tính bằng số mol và cũng chẳng thể quy đổi thành bất kỳ đơn vị nào. Đó là những gì cô đã để lại trong lòng học trò.
+Bonus: Chúng em đã thử cân bằng phương trình cuộc đời, nhưng vẫn chưa tìm được hệ số nào đủ lớn để diễn tả lòng biết ơn dành cho cô.`
+    },
+    {
+        name: "ht",
+        text: `Nhân ngày 20/11, em chúc cô Híuu thật nhiều sức khỏe, ngày càng thành công trong hành trình trồng người. Mong cô sẽ luôn tràn đầy nhiệt huyết và luôn tận tâm với nghề nhà giáo. Em iu cô lắm ạaa.`
+    },
+    {
+        name: "TRỌNG BẢO",
+        text: `20/11 sắp đến rồi, em xin gửi đến cô những lời chúc tốt đẹp nhất. Chúc cô luôn mạnh khỏe, trẻ trung, hạnh phúc và lúc nào cũng tràn đầy năng lượng ạ!
+
+Không biết cô còn nhớ đến cậu học trò có phần bướng bỉnh,nghịch ngợm, đôi khi ngang bướng, thích làm theo ý mình và chắc từng khiến cô phải đau đầu, bất lực không. Có lẽ em chưa phải một học trò ngoan, cũng chẳng phải người dễ bảo, nhưng trong 3 năm cấp 3 may mắn là em đã từng được gặp những người giáo viên đủ kiên nhẫn để đồng hành cùng mình trong những năm tháng tuổi trẻ ấy.
+
+Giờ đây, sau gần 2 năm khi đã bước ra khỏi mái trường cấp 3, mỗi người một cuộc sống riêng, em cũng trưởng thành thay đổi suy nghĩ và tính cách khi bước ra xã hội, áp lực công việc. Nhìn lại em thấy còn là học sinh em thấy được ba mẹ lo cho từng chút và cô còn nhắc nhở động viên sướng biết bao nhiêu đúng không cô🤣🤣🤣. 
+
+Những lời chúc và tâm sự của mà em muốn gửi đến cô, em không có giỏi ăn nói cho lắm. Chúc cô một mùa 20/11 thật ý nghĩa. Mong cô luôn vui vẻ và tự hào với những thế hệ học trò mình đã từng dìu dắt. Có rất nhiều bạn gửi lời chúc 20/11 đến cô nếu cô có đọc lời chúc này của em chắc sẽ bất ngờ và bật cười và không nghĩ đó là những lời mà em viết ra😅😅😅. Và cũng sắp đến Tết rồi mong sẽ có dịp họp lớp cùng với cô mình ngồi lại tâm sự 😁😁😁😁.  Còn riêng em, dù ngày xưa có hơi nổi loạn một chút, thì hôm nay vẫn xin được làm một học trò cũ gửi đến cô lời chúc chân thành nhất ạ!`
     }
 ];
